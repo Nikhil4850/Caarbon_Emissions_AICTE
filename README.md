@@ -104,3 +104,153 @@ The dataset is publicly available at https://datacatalog.worldbank.org/dataset/c
 **github link for 1st week code : https://github.com/RGS-AI/AICTE_Internships/blob/main/2025/June_2025/Carbon_Emission_Prediction/1_data_preparation.ipynb**
 
 **drive link for 1st week code : https://colab.research.google.com/drive/1uYvbmIZvQRD3vBZqrVfkegsjWYeWtliI?usp=drive_link**
+
+.
+-
+.
+# WEEK 2 : Model Building and Training
+### 🎯 Goal for Week 2:
+To build, train, and evaluate machine learning models (like Random Forest) that can accurately predict CO₂ emissions using real-world data.
+
+### Prediction of CO2 emissions from country-specific data
+![image](https://github.com/user-attachments/assets/28167d39-b30e-4307-92fa-1ad801f2555a)
+
+### Stage 2: Data exploration and visualization
+**Notebook Contents:**
+0. Introduction
+1. Notebook setup - libraries and data import, notes on the data source
+2. Global data overview
+3. Feature/column abbreviations and units
+4. Definition of the hypothesis to be tested
+5. Feature engineering
+- features overview
+- derivation of additional important features
+- removal of unnecessary features
+6. Prepare the visualization
+7. Create plots
+- a global look onto all relationships and detailed plots of chosen dependencies
+- correlation matrix heatmaps
+- scatterplots, histograms
+- detection of outliers
+- discussion of dependencies and trends
+8. Conclusions
+
+### 🔹 1. Model Selection
+- Chose appropriate regression models:
+        - Random Forest Regressor (main model)
+        - Possibly tried Linear Regression or Decision Tree for comparison
+
+### 🔹 2. Data Splitting
+- Used train_test_split() to divide data:
+        - 80% training, 20% testing
+        - Example:
+
+        from sklearn.model_selection import train_test_split
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+  
+### 🔹 3. Model Training
+- Trained the model using:
+
+        model = RandomForestRegressor()
+        model.fit(X_train, y_train)
+- Learned how the model "learns patterns" from features like:
+        - Population
+        - Energy consumption
+        - GDP
+
+### 🔹 4. Evaluation Metrics
+- Evaluated model performance using:
+        - R² Score (explains variance)
+        - RMSE (root mean squared error)
+
+        from sklearn.metrics import r2_score, mean_squared_error
+        
+        r2 = r2_score(y_test, y_pred)
+        rmse = mean_squared_error(y_test, y_pred, squared=False)
+### 🔹 5. Visualization
+- Plotted Actual vs Predicted CO₂ Emission
+- Created correlation plots to interpret performance
+- Identified which features had the most influence on emissions
+
+## Links 
+**github link for 1st week code : https://github.com/RGS-AI/AICTE_Internships/blob/main/2025/June_2025/Carbon_Emission_Prediction/2_data_preparation.ipynb**
+
+**drive link for 1st week code :[ https://colab.research.google.com/drive/1uYvbmIZvQRD3vBZqrVfkegsjWYeWtliI?usp=drive_link](https://colab.research.google.com/drive/12AOcLgfnui_5XKyVm6uq0hWZ3qI5psh0?usp=drive_link)**
+
+.
+-
+.
+
+# 📘 Week 3 : Model Optimization, Forecasting & Reporting
+
+### 🎯 Goal for Week 3:
+To improve model performance through tuning, forecast future CO₂ emissions, visualize results, and prepare final reports and presentations.
+
+## Predictive data analysis with the Random Forest machine learning algorithm
+![image](https://github.com/user-attachments/assets/92b32c3a-98d6-4f7f-aa55-b4592146bf9a)
+
+### Stage 3 Notebook Contents:
+0. Introduction - project and notebook summaries, notes on the data source
+1. Notebook setup - libraries and data import, dealing with randomness in the algorithms
+2. Data overview
+3. Used feature/column abbreviations
+4. Hypothesis to be tested
+5. Selection of dependent and independent variables
+6. Dataset splitting into training and testing subsets
+7. Feature selection with recursive feature elimination and cross-validation
+8. Hyperparameter tuning of a random forest model with cross-validation
+9. Train and evaluate the model with the best hyperparameters on the training data with cross-validation
+10. Validate the model on the test subset (previously unseen data)
+11. Conclusions
+
+## ✅ Key Learning Areas in Week 3:
+###🔹 1. Hyperparameter Tuning
+- Used GridSearchCV or RandomizedSearchCV to find the best parameters:
+        
+        from sklearn.model_selection import GridSearchCV
+        
+        param_grid = {
+            'n_estimators': [100, 200, 300],
+            'max_depth': [10, 20, None]
+        }
+        
+        grid = GridSearchCV(RandomForestRegressor(), param_grid, cv=5)
+        grid.fit(X_train, y_train)
+        
+        best_model = grid.best_estimator_
+- Learned how tuning improves accuracy and prevents overfitting
+
+### 🔹 2. Cross-Validation
+- Applied k-fold cross-validation (usually 5 or 10 folds)
+
+- Ensured stable performance across multiple data splits
+
+### 🔹 3. Future Forecasting (2010–2030)
+- Predicted CO₂ emissions for future years using trained model
+- Input values were extrapolated (e.g., population, energy use trends)
+
+- Forecast Example:
+        - 2025: 34,500 metric tons
+        - 2030: 36,000 metric tons
+
+### 🔹 4. Final Visualization
+- Created:
+        - Line plot for actual vs predicted emissions
+        - Feature importance graph
+        - Forecast graph (2010–2030)
+
+### 🔹 5. Final Documentation & Presentation
+- Prepared:
+        - PowerPoint presentation (slides: problem, tools, EDA, model, output)
+        - Project report or PDF
+        - Screenshots of:
+                - Code
+                - EDA
+                - Model output
+                - Evaluation metrics
+                - Prediction charts
+
+## Links 
+**github link for 1st week code : https://github.com/RGS-AI/AICTE_Internships/blob/main/2025/June_2025/Carbon_Emission_Prediction/3_data_preparation.ipynb**
+
+**drive link for 1st week code :[[ https://colab.research.google.com/drive/1uYvbmIZvQRD3vBZqrVfkegsjWYeWtliI?usp=drive_link](https://colab.research.google.com/drive/12AOcLgfnui_5XKyVm6uq0hWZ3qI5psh0?usp=drive_link)](https://colab.research.google.com/drive/1UKqUbTd-iF4AhdaNDB5Id8dL68DVxnFv?usp=drive_link)**
